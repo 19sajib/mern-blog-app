@@ -1,10 +1,12 @@
 
 import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/HomePage/Home";
 
 function App() {
   return (
     <>
     <Navbar />
+    <Home />
     </>
   );
 }
