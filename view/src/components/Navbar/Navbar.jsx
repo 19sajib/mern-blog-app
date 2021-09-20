@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import './navbar.css'
 
 const Navbar = () => {
+    const user = false;
     return (
         <div className="top">
            <div className="topLeft">
@@ -11,18 +13,37 @@ const Navbar = () => {
            </div>
            <div className="topCenter">
                <ul className="topList">
-                   <li className="topListItem">Home</li>
-                   <li className="topListItem">About</li>
-                   <li className="topListItem">Contact</li>
-                   <li className="topListItem">Write</li>
-                   <li className="topListItem">Logout</li>
+                   <li className="topListItem">
+                       <Link to="/" style={{textDecoration: "none", color: "inherit" }}>Home</Link>
+                   </li>
+                   <li className="topListItem">
+                   <Link to="/about" style={{textDecoration: "none", color: "inherit" }}>About</Link>
+                   </li>
+                   <li className="topListItem">
+                   <Link to="/contact" style={{textDecoration: "none", color: "inherit" }}>Contact</Link>
+                   </li>
+                   <li className="topListItem">
+                   <Link to="/write" style={{textDecoration: "none", color: "inherit" }}>Write</Link>
+                   </li>
+                   <li className="topListItem">{user && 'Logout'}</li>
                </ul>
            </div>
            <div className="topRight">
-               <img 
-               className="topImg"
-               src="https://pbs.twimg.com/profile_images/1404642845596667904/BEzbeWoh_400x400.jpg" 
-               alt="sajib" />
+               {user ? (
+                   <img 
+                   className="topImg"
+                   src="https://pbs.twimg.com/profile_images/1404642845596667904/BEzbeWoh_400x400.jpg" 
+                   alt="sajib" />
+               ): (
+                <ul className="topList">
+                <li className="topListItem">
+                    <Link to="/login" style={{textDecoration: "none", color: "inherit" }}>Login</Link>
+                    </li>
+                    <li className="topListItem">
+                    <Link to="/register" style={{textDecoration: "none", color: "inherit" }}>Register</Link>
+                    </li>
+                </ul>
+               )}
                <i className="topSearchIcon fas fa-search"></i>
            </div>
         </div>
