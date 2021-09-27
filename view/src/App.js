@@ -1,4 +1,4 @@
-
+import { useContext } from 'react'
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/HomePage/Home";
 import Login from "./pages/Login/Login";
@@ -13,9 +13,10 @@ import {
   Route,
   Link 
 } from "react-router-dom"
+import { Context } from "./context/Context";
 
 const App = () => {
-  const user = false;
+  const {user} = useContext(Context)
   return (
     <Router>
     <Navbar />
