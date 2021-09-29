@@ -36,10 +36,12 @@ const Navbar = () => {
            </div>
            <div className="topRight">
                {user ? (
+                   <Link to="/setting">
                    <img 
                    className="topImg"
-                   src={user.profilePic} 
+                   src={user.profilPic}
                    alt="sajib" />
+                   </Link>
                ): (
                 <ul className="topList">
                 <li className="topListItem">

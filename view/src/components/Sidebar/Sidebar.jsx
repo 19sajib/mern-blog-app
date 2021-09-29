@@ -11,7 +11,7 @@ export default function Sidebar() {
         const result = await axios.get("/categories")
         setCats(result.data);}
         getCats();
-    })
+    },[])
     return (
         <div className="sidebar">
            <div className="sidebarItem">
@@ -26,7 +26,7 @@ export default function Sidebar() {
             <span className="sidebarTitle">Categories</span>
             <ul className="sidebarList">
                 {cats.map((cat) => (
-                    <Link to={`/?cat=${cat.name}`} className="link" >
+                    <Link key={cat._id} to={`/?cat=${cat.name}`} className="link" >
                 <li className="sidebarListItem">{cat.name}</li>
                 </Link>
                 ))}
